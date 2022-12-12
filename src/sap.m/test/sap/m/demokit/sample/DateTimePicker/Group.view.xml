@@ -1,0 +1,127 @@
+<mvc:View
+	controllerName="sap.m.sample.DateTimePicker.Group"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Panel
+		id="dateTimePanel"
+		headerText="When DateTimePicker change events are fired the selected date and time is displayed in the Text control"
+		width="auto">
+		<Label text="Simple DateTimePicker" labelFor="DTP1"/>
+		<DateTimePicker
+			id="DTP1"
+			placeholder="Enter Date"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+		<Label text="With initialFocusedDateValue new Date(2017, 5, 13, 11, 12, 13)" labelFor="DTP6"/>
+		<DateTimePicker
+			id="DTP6"
+			placeholder="Enter Date"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+		<Label text="DateTimePicker with given Value, Formatter, and with shortcuts for current date and current time" labelFor="DTP2"/>
+		<DateTimePicker
+			id="DTP2"
+			showCurrentDateButton="true"
+			showCurrentTimeButton="true"
+			value="2016-02-18-10-32-30" valueFormat="yyyy-MM-dd-HH-mm-ss" displayFormat="long"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+		<Label text="DateTimePicker with given Value and Formatter" labelFor="DTP3"/>
+		<DateTimePicker
+			id="DTP3"
+			value= "{
+				'type': 'sap.ui.model.type.DateTime',
+				'path': '/value',
+				'formatOptions': {
+					'pattern': 'M/d/yy h:mm a'
+				}
+			}"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+		<Label text="DateTimePicker with Islamic date and secondary Gregorian date in calendar" labelFor="DTP4"/>
+		<DateTimePicker
+			id="DTP4"
+			value="2016-02-18-10-32-30"
+			valueFormat="yyyy-MM-dd-HH-mm-ss"
+			displayFormat="short"
+			displayFormatType="Islamic"
+			secondaryCalendarType="Gregorian"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+		<Label text="DateTimePicker with steps for minutes and seconds sliders" labelFor="DTP7"/>
+		<DateTimePicker
+			id="DTP7"
+			valueFormat="yyyy-MM-dd-HH-mm-ss"
+			minutesStep="3" secondsStep="5"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+		<Text
+			id="textResult"
+			text="Change event result"
+			class="sapUiSmallMargin"/>
+	</Panel>
+	<Panel
+		id="dataBindingDateTimePanel"
+		headerText="DateTimePicker using data binding"
+		width="auto">
+		<Label text="DateTimePicker using DataBinding" labelFor="DTP5"/>
+		<DateTimePicker
+			id="DTP5"
+			value="{
+				path:'/value',
+				type:'sap.ui.model.type.DateTime',
+				formatOptions: {
+					style: 'medium',
+					strictParsing: true
+				}
+			}"
+			class="sapUiSmallMarginBottom"/>
+		<Text
+			id="textResultForDataBinding"
+			text="{
+				path:'/value',
+				type:'sap.ui.model.type.DateTime',
+				formatOptions: {
+					style: 'long'
+				}
+			}"
+			class="sapUiSmallMargin"/>
+	</Panel>
+	<form:SimpleForm
+		id="simpleForm"
+		columnsL="1"
+		columnsM="1"
+		editable="true"
+		labelSpanL="12"
+		labelSpanM="12"
+		layout="ResponsiveGridLayout">
+		<Title
+			text="Using a timezone"
+			titleStyle="H4" />
+		<Label text="Showing the timezone label" labelFor="DTP8"/>
+		<DateTimePicker
+			id="DTP8"
+			value="2016-02-18-10-32-30"
+			valueFormat="yyyy-MM-dd-HH-mm-ss"
+			showTimezone="true"
+			timezone="America/New_York"
+			class="sapUiSmallMarginBottom" />
+		<Label text="Not showing the timezone label, showing the current time in New York" labelFor="DTP9" />
+		<DateTimePicker
+			id="DTP9"
+			value="{
+				'path':'/value',
+				'type': 'sap.ui.model.type.DateTime',
+				'formatOptions': {
+						'style': 'medium'
+				}
+			}"
+			timezone="America/New_York"
+			class="sapUiSmallMarginBottom"/>
+		<Input editable="false" value="America/New_York">
+			<layoutData><layout:GridData span="XL2 L3 M4 S4"/></layoutData>
+		</Input>
+	</form:SimpleForm>
+</mvc:View>

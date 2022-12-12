@@ -1,0 +1,24 @@
+{
+	"rules": {
+		"quote-props": ["error", "as-needed", { "keywords": true }],
+		"no-unused-vars": ["error", { "vars": "all", "args": "after-used" }],
+
+		"no-unneeded-ternary": ["error", { "defaultAssignment": false }],
+		"space-before-blocks": "error",
+		"eqeqeq": "error",
+		"no-else-return": "error",
+		"padded-blocks": ["error", "never"],
+		"space-in-parens": ["error", "never"],
+		"array-bracket-spacing": "error",
+		"comma-spacing": "error",
+		"comma-style": "error",
+		"no-multi-spaces": "error",
+		"indent": ["error", "tab", {
+			"SwitchCase": 1,
+			"MemberExpression": "off"
+		}],
+		"one-var": ["error", "never"],
+		"no-useless-call": "error",
+		"key-spacing": ["error", { "beforeColon": false }]
+	}
+}
